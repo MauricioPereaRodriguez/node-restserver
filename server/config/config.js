@@ -11,6 +11,12 @@ process.env.NODE_ENV = process.env.NODE_ENV || 'dev';
 // ====================
 //  BASE DE DATOS
 // ====================
-let urlDB = (process.env.NODE_ENV === 'dev') ? 'mongodb://localhost:27017/cafe' : 'mongodb://cafe-user:112233445566@ds231090.mlab.com:31090/cafe';
+let urlDB;
+
+if (process.env.NODE_ENV === 'dev') {
+    urlDB = 'mongodb://localhost:27017/cafe';
+} else {
+    urlDB = 'mongodb://cafe-user:112233445566@ds231090.mlab.com:31090/cafe';
+}
 
 process.env.URLDB = urlDB;
